@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    background-image: url(https://www.thirdeyesolutions.com/wp-content/uploads/2016/05/Amazing-Blue-Sky-Sunset-Wallpaper-from-WallWideHD.com_.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.headline {
+    margin-top: 2%;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.container {
+    margin-top: 8px;
+    border-radius: 16px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+}
+
+.enterName {
+    margin-bottom: 16px;
+}
+
+#submitCity {
+    padding: 3px;
+    color: black;
+}
+
+.errorMessage {
+    font-size: 14px;
+}
