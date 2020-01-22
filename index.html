@@ -1,31 +1,38 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 <body>
-    <div class="headline"><h1>Your Weather</h1></div>
-
-    <div class="container">
-        <div class="enterName">
-            <h2>Enter City Name<h2>
-
-            <span id="error"></span>
-
-            <input type="text" name="city" id="city" placeholder="City Name">
-            
-            <button id="submitCity">Search City</button>
-        </div>
-
-        <div id="show"></div>
-    </div>
-
-    <script src="index.js"></script>
+  
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+  </head>
+
+  <body>
+    <h1>YOUR WEATHER</h1>
+    
+    <form role="form" id="js-submit">
+      <input role="searchbox" aria-label="Search" class="search" type="text" id="js-zip-code" placeholder="Enter Zip Code" required/>
+      <button role="button" id="submit-btn" type="submit">Submit</button>
+    </form>
+
+    <div id="display"></div>
+         
+    <script src="index.js"></script>
+  </body>
 </html>

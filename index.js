@@ -1,39 +1,72 @@
-$(document).ready(function(){
-    // don't need submit b/c not using form
-    $("#submitCity").click(function(){
+"use strict"
+
+
+const apiKey = "&appid=205875b36b302ba6550cd7fb6668491b";
+const currentData = "https://api.openweathermap.org/data/2.5/weather?zip=";
+const forecastData = "https://api.openweathermap.org/data/2.5/forecast?zip=";
+
+
+function getCurrentData(zipCode) {
+   fetch(currentData + zipCode + apiKey + "&units=imperial")
+    .then(res => {
+      if (res.status === 404) {
+        alert(zipCode + " is not valid. Please enter a valid zip code.");
+      } else {
+        return res.json();
+      }
+    })
+    .then(currentTemp => {
+      $("#display").html(`
+
+          <h2 class="current-header">CURRENT WEATHER</h2>
+
+          <div id='current'>
+            <p id=''>${currentTemp.main.temp}°F</p>
+            <p class='weather-text'>${currentTemp.weather[0].main}</p>
+          </div>
         
-        var city = $("#city").val();
-
-        if(city != ""){
-
-            $.ajax({
-                url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + 
-                "&APPID=205875b36b302ba6550cd7fb6668491b",
-                type: "GET",
-                dataType: "jsonp",
-                success: function(data){
-                    var widget = show(data);
-
-                    $("#show").html(widget);
-
-                    $("#city").val("");
-                }
-            });
-
-        }else{
-            $("#error").html("<div class='errorMessage'>Field cannot be empty.</div>");
-        }
-    });
-});
-
-function show(data){
-    return "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>"+
-    "<img src='https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png'>" + 
-    "<h3>Description: " + data.weather[0].description +  "</h3>" + 
-    "<h3>Temperature: " + data.main.temp +  "&deg;F</h3>" + 
-    "<h3>Pressure: " + data.main.pressure +  " hPa</h3>" +
-    "<h3>Humidity: " + data.main.humidity +  "%</h3>" +
-    "<h3>Min. Temperature: " + data.main.temp_min +  "&deg;F</h3>" + "<h3>Max. Temperature: " + data.main.temp_max +  "&deg;F</h3>" +
-    "<h3>Wind Speed: " + data.wind.speed +  " mph</h3>" + 
-    "<h3>Wind Direction: " + data.wind.deg +  "&deg;</h3>";
+          <h2 class="forecast-header">FORECAST</h2>
+          <div id='forecast'>
+          </div>
+      `);
+    })
+    .catch(err => console.log(err));
 }
+
+
+{/* <img src='https://openweathermap.org/img/wn/' + ${currentTemp.weather[0].icon} + @2x.png'>  */}
+
+
+function getForecastData(zipCode) {
+  fetch(forecastData + zipCode + apiKey + "&units=imperial")
+    .then(res => res.json())
+    .then(forecastTemp => {
+      forecastTemp.list.map(item => {
+        let hour = moment(item.dt_txt).hour();
+        let day = moment(item.dt_txt).format("dddd");
+        if (hour === 12) {
+
+          $("#forecast").append(`
+
+              <div class='forecast-wrap'>
+                <p class='forecast-date'>${day}</p>
+                <p class='forecast-temp'>${item.main.temp}°F</p>
+                <p class='weather-text'>${item.weather[0].main}</p>
+              </div>
+          `);
+        }
+      })
+    });
+}
+
+
+function watchForm() {
+  $("#js-submit").submit(e => {
+    e.preventDefault();
+    let zipCode = $("#js-zip-code").val();
+    getCurrentData(zipCode);
+    getForecastData(zipCode);
+  });
+}
+
+$(watchForm);
