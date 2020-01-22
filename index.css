@@ -87,3 +87,26 @@ form {
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.5);
 }
+
+footer {
+  margin-bottom: 18px;
+  padding: 4px;
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+@media  screen and (min-width: 750px) {
+  footer {
+    width: 60%;
+  }
+}
+
+@media  screen and (max-height: 600px) {
+  footer {
+    display: none;
+  }
+}
