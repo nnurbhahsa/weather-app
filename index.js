@@ -39,7 +39,7 @@ function getForecastData(zipCode) {
   fetch(forecastData + zipCode + apiKey + "&units=imperial")
     .then(res => res.json())
     .then(forecastTemp => {
-      // if (forecastTemp)
+      // if (forecastTemp.val() != )
       console.log(forecastTemp);
       forecastTemp.list.map(item => {
         let hour = moment(item.dt_txt).hour();

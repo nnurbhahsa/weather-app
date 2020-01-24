@@ -31,6 +31,19 @@ h1 {
 form {
   margin-top: 16px;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
 #submit-btn {
   padding: 3px;
 }
@@ -104,11 +117,13 @@ header {
 
 /* toggle check in mobile */
 @media  screen and (min-width: 400px) {
-
+  h1 {
+    margin-top: 96px;
+    font-size: 32px;
+  }
 
   #forecast {
     flex-direction: row;
-
   }
 }
 
