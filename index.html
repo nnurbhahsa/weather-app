@@ -11,19 +11,20 @@
   </head>
 
   <body>
+    <!-- changed from footer -->
+    <header>
+      <p>One can request the current and forecast weather of any location with a zip code. The current weather data and 5 day / 3 hour forecast APIs form https://openweathermap.org/api were utilized to retrieve weather statistics for a given locaton.</p>
+    </header>
+    
     <h1>YOUR WEATHER</h1>
     
     <form role="form" id="js-submit">
-      <input role="searchbox" aria-label="Search" class="search" type="text" id="js-zip-code" placeholder="Enter Zip Code" required/>
+      <input role="searchbox" aria-label="Search" class="search" type="number" id="js-zip-code" placeholder="Enter Zip Code" required/>
       <button role="button" id="submit-btn" type="submit">Submit</button>
     </form>
 
     <div id="display"></div>
          
     <script src="index.js"></script>
-
-    <footer>
-      <p>One can request the current and forecast weather of any location with a zip code. The current weather data and 5 day / 3 hour forecast APIs form https://openweathermap.org/api were utilized to retrieve weather statistics for a given locaton.</p>
-    </footer>
   </body>
 </html>

@@ -21,6 +21,7 @@ function getCurrentData(zipCode) {
           <h2 class="current-header">CURRENT WEATHER</h2>
 
           <div id='current'>
+            <img src="https://openweathermap.org/img/wn/${currentTemp.weather[0].icon}@2x.png">
             <p id=''>${currentTemp.main.temp}°F</p>
             <p class='weather-text'>${currentTemp.weather[0].main}</p>
           </div>
@@ -34,18 +35,16 @@ function getCurrentData(zipCode) {
 }
 
 
-{/* <img src='https://openweathermap.org/img/wn/' + ${currentTemp.weather[0].icon} + @2x.png'>  */}
-
-
 function getForecastData(zipCode) {
   fetch(forecastData + zipCode + apiKey + "&units=imperial")
     .then(res => res.json())
     .then(forecastTemp => {
+      // if (forecastTemp)
+      console.log(forecastTemp);
       forecastTemp.list.map(item => {
         let hour = moment(item.dt_txt).hour();
         let day = moment(item.dt_txt).format("dddd");
         if (hour === 12) {
-
           $("#forecast").append(`
 
               <div class='forecast-wrap'>
