@@ -2,7 +2,7 @@
 
 
 
-### Live App: https://nnurbhahsa.github.io/weather-app/ 
+### Live App: https://nnurbhasha.github.io/weather-app/ 
 
 
 
@@ -15,9 +15,9 @@
 
 
 ### Summary
-One can request the current and forecast weather of any location with a zip code. The current weather data and 5 day / 3 hour forecast APIs form https://openweathermap.org/api were utilized to retrieve weather statistics for a given locaton.
+Request the current weather and forecast of any location with a zip code. APIs form https://openweathermap.org/api were utilized.
 
 
 
 ### Technologies
-HTML, CSS, JavaScript and jQuery
+HTML, CSS, JavaScript & jQuery
